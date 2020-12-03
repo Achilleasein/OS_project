@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <stdlib.h>
-#define N 30
+#define N 2
 
 int main()
 {
@@ -14,8 +14,8 @@ int main()
         pid[i] = fork();
         if (pid[i] == 0)
         {
-            sleep(60-2*i);
-            exit(100+i);
+            sleep(2-2*i);
+            exit(1+i);
         }
     }
     
@@ -25,11 +25,11 @@ int main()
 
         if (WIFEXITED(child_status))
         {
-            printf("Child%d terminated with exit status %d\n" , wpid, WEXITSTATUS(child_status));
+            printf("Child %d terminated with exit status %d\n" , wpid, WEXITSTATUS(child_status));
         }
         else
         {
-            printf("Child%d termianted abnormally\n", wpid);
+            printf("Child %d termianted abnormally\n", wpid);
         }
         
     }
