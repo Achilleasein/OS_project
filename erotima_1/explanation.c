@@ -23,7 +23,7 @@ int main()
     {
         pid_t wpid = waitpid(pid[i], &child_status, 0); // waits for the specific child to finish
 
-        if (WIFEXITED(child_status)) // check if the chilf finished properly
+        if (WIFEXITED(child_status)) // check if the child finished properly
         {
             printf("Child %d terminated with exit status %d\n" , wpid, WEXITSTATUS(child_status));
         }
@@ -39,3 +39,5 @@ int main()
 
 
 // http://www.cs.iit.edu/~cs561/cs450/fork/fork.html#:~:text=The%20if%20(PID%20%3D%3D%200,else%20part%20of%20the%20condition.
+// https://github.com/jfhamlin/bakery/blob/master/bakery.c
+// https://stackoverflow.com/questions/42295035/implementation-of-bakery-algorithm-in-c-for-forked-processes
