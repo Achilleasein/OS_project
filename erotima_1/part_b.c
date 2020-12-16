@@ -23,25 +23,22 @@ volatile int choosing[THREAD_COUNT];
 volatile int resource;
 
 // Functions
-pid_t *ask_for_children(int * des_children)
-{
-    printf("Give me the desired number of children:");
-    scanf("%d", &des_children);  // wrong type passed since des children is pointer
-    pid_t pid[des_children]; // wrong type passed since des children is pointer
-    return pid; //  returns address instead of variable
-}
 
 // Main
 int main()
 {
     int des_children = 0; 
-    pid_t *pid;
-    pid = ask_for_children(&des_children);
+    
+    printf("Give me the desired number of children:");
+    scanf("%d", &des_children);
+    pid_t pid[des_children];
+    int bakery_ticket[des_children];
 
     for(size_t i = 0; i < des_children; i++)
     {
+    
         pid[i] = fork();
-        printf(pid[i]);  // wrong type passed since pid is array 
+        bakery_ticket[i] = rand() % 50;
     }
 
 
