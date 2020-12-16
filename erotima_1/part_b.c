@@ -23,7 +23,7 @@ volatile int choosing[THREAD_COUNT];
 volatile int resource;
 
 // Functions
-pid_t * ask_for_children(int * des_children)
+pid_t *ask_for_children(int * des_children)
 {
     printf("Give me the desired number of children:");
     scanf("%d", &des_children);  // wrong type passed since des children is pointer
